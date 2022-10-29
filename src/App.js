@@ -9,7 +9,8 @@ export default function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/player" element={<VideoPlayer />} />
         </Routes>
       </div>

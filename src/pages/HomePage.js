@@ -8,10 +8,15 @@ import {
   CardMedia,
   CardContent,
   CardActions,
+  Paper,
+  Box,
+  Grid,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import "./HomePage.css";
 import Navbar from "../components/navbar";
+import Carousel from "react-elastic-carousel";
+import { PostAddSharp } from "@mui/icons-material";
 
 const baseURL = "http://192.168.1.136:4000/movieList";
 const movieListURL = "http://192.168.1.136:4000/video";
@@ -36,35 +41,20 @@ export default function HomePage() {
         {post.map((p) => {
           return (
             <div key={p.ID} className="list">
-              <Card sx={{ maxWidth: 300, maxHeight: 500 }}>
-                <CardMedia
-                  component="img"
-                  height="140"
-                  src={p.Img_Url}
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {p.Movie_Name}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {p.Description}
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button
-                    variant="contained"
-                    onClick={() => {
-                      const name = p.Movie_Name;
-                      axios.post(movieListURL, { name });
-                      console.log(name);
-                      navigate("/player");
-                    }}
-                  >
-                    Watch Now
-                  </Button>
-                </CardActions>
-              </Card>
+              <Box className="image">
+                <Paper
+                  elevation={3}
+                  className="img__img"
+                  onClick={() => {
+                    const name = p.Movie_Name;
+                    axios.post(movieListURL, { name });
+                    console.log(name);
+                    navigate("/player");
+                  }}
+                >
+                  <img src={p.Img_Url} id="paperImage" title={p.Movie_Name} />
+                </Paper>
+              </Box>
             </div>
           );
         })}

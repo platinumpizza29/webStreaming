@@ -1,5 +1,26 @@
-* {
-  /* overflow: hidden; */
-  margin: 0px;
-  padding: 0px;
+.LoginPage {
+  overflow: hidden;
+}
+
+img {
+  background-repeat: "no-repeat";
+  max-height: "100%";
+  max-width: "100%";
+}
+
+.grid2 {
+}
+
+/* ----  Responsiveness   ----  */
+@media (max-width: 780px) {
+  .grid1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .side {
+    display: none;
+  }
 }

@@ -15,7 +15,7 @@ export default function Navbar() {
 
   return (
     <div className="App">
-      <AppBar position="static">
+      <AppBar position="static" color="transparent" elevation={0}>
         <Toolbar>
           <IconButton
             size="large"
